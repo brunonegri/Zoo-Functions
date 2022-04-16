@@ -15,16 +15,12 @@ function isManager(id) {
 
 function getRelatedEmployees(managerId) {
   // seu código aqui
-  if (isManager(managerId) === false) {
-    throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
-  }
-  try {
+  if (isManager(managerId) === true) {
     const responsavel = employees.filter((employee) => employee.managers.includes(managerId));
     const retornaNomes = responsavel.map((atual) => `${atual.firstName} ${atual.lastName}`);
     return retornaNomes;
-  } catch (error) {
-    throw error.message;
   }
+  throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
 }
 
 // console.log(getRelatedEmployees('9e7d4524-363c-416a-8759-8aa7e50c0992'));
