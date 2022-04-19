@@ -30,7 +30,7 @@ function countEntrants(entrants) {
 
 function calculateEntry(entrants) {
   // seu código aqui
-  if (!entrants || entrants === {}) {
+  if (!entrants || Object.keys(entrants).length === 0) {
     return 0;
   }
   const nC = countEntrants(entrants); // nC é numero de Clientes
